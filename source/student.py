@@ -45,11 +45,12 @@ plt.title('Average Grade Distribution')
 plt.savefig(OUT_DIR / 'average_grade_distribution.png')
 plt.close()
 
-# Pie chart for paid vs unpaid students
-plt.figure(figsize=(8,6))
-status_counts = df['payment_status'].value_counts()
-plt.ylabel('')
-plt.savefig(OUT_DIR / 'paid_vs_unpaid_students.png')
+# pie chart for paid students vs unpaid students
+payment_counts = df['payment_status'].value_counts()
+plt.figure(figsize=(6,6))
+plt.pie(payment_counts, labels=payment_counts.index, autopct='%1.1f%%', startangle=120, colors=['#66b3ff','#ff9999'])
+plt.title('Payment Status Distribution')
+plt.savefig(OUT_DIR / 'payment_status_distribution.png')
 plt.close()
 
 print("Project complete. Check the output folder for results.")
